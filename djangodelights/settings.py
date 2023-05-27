@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "inventory.apps.InventoryConfig" #codecademy instructions. changed the default settings in apps.py to Inventory config and inventory on line 6
 ]
 
 MIDDLEWARE = [
@@ -75,7 +76,7 @@ WSGI_APPLICATION = "djangodelights.wsgi.application"
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE':"django.db.backends.postgresql",
         'NAME': 'DjangoDelights',
         'USER': 'andrewstribling',
         'PASSWORD': 'Baseball100!',
