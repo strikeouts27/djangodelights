@@ -6,7 +6,7 @@ the ForeignKey will automatically reference the primary key that Django makes fo
 without the def_str__ method it will not label ingredient by name in the django template
 
 admin: 
-superuserpassword: Baseball100
+superuserpassword: ########
 models is looking for a generic python package. when you say .models it says look for models in my directory.
 in order to load the admin screen add the /admin to the url to see the admin page.
 
