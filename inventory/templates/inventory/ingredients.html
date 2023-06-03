@@ -1,0 +1,21 @@
+{% extends 'inventory/base.html' %} 
+
+{% block content %}
+{% load static %}
+<link rel = "stylesheet" href="{% static 'inventory/style.css' %}">
+<h1> Welcome to the Home page!</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Ingredient Name</th>
+            <th>Quantity</th>
+            <th>Unit Type</th>
+            <th>Price Per Unit</th>
+        </tr>
+    </thead>
+    {% for item in object_list %}
+    <tr><td>{{ item.name }}</td> <td>{{ item.quantity}}</td> <td>{{ item.unit }}</td> <td>{{ item.price_per_unit }}</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -15,8 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from inventory.views import finance, home, IngredientsView, MenuView, PurchaseView
+from inventory import views
+from django.views.generic.base import TemplateView
+from django.http import HttpResponse
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-]
+    
+    path('', views.home, name='default'), # users don't need to see the rocket page anyway. they need to see the home page.
+    path('admin/', admin.site.urls),
+    path('finance/', finance, name='finance'),
+    path('home/', home, name='home'), #I am attempting to connect the home_view function with the views function.
+    path('ingredients/', IngredientsView.as_view(), name='ingredients'),
+    path('menu/', MenuView.as_view(), name='menu'),
+    path('purchases/', PurchaseView.as_view(), name='purchases'),
+    ]

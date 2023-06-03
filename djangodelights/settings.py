@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os #sets django to most current.
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "inventory.apps.InventoryConfig" #codecademy instructions. changed the default settings in apps.py to Inventory config and inventory on line 6
+    "inventory.apps.InventoryConfig", #codecademy instructions. changed the default settings in apps.py to Inventory config and inventory on line 6
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,12 @@ ROOT_URLCONF = "djangodelights.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            os.path.join(BASE_DIR, 'templates'), 
+            #accessing the Base Directory on line 16 which points to our main directory 
+            # 'templates' will tell it too look in the templates folder.
+        
+        ], # this lets django know where to look for certain templates.
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

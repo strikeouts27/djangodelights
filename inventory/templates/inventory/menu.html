@@ -1,0 +1,24 @@
+{% extends 'inventory/base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel = "stylesheet" href="{% static 'inventory/style.css' %}">
+
+<h1> Welcome to the Menu page!</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    {% for item in object_list %}
+    <tr><td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.price|floatformat:2}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}

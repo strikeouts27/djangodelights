@@ -1,0 +1,23 @@
+{% extends 'inventory/base.html'%}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'inventory/style.css' %}">
+<h1> Welcome to the Purchases page!</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Purchased Item</th>
+            <th>Timestamp</th>
+            <th>Reference Number</th>
+        </tr>
+    </thead>
+    {% for item in object_list %}
+    <tr>
+        <td>{{item.menu_order}}</td>
+        <td>{{item.timestamp}}</td>
+        <td>{{item.id}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
