@@ -30,3 +30,6 @@ this grabs every row in the purchases table
 
 # go to the Receipe Requirements table. give me the objects. but only give me the receipe
 #where the recipe is me
+
+# troubleshooting ideas
+# picture what I am working with and what data type it is, and what are the charactersitics of what I am working with. is it a list? is it a object with all the fields and than I can access items inside of objects fields...

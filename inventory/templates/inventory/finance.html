@@ -1,5 +1,22 @@
 {% extends 'inventory/base.html' %}
 
 {% block content %}
-<h1> Welcome to the Finance page!</h1>
+{% load static %}
+<link rel = "stylesheet" href="{% static 'inventory/style.css' %}">
+
+<table>
+  <thead>
+    <tr>
+    <th>Total Revenue</th>
+    <th>Total Cost</th>
+    <th>Total Profit</th>
+  </tr>
+</thead>
+    <tr>
+      <td>{{total_revenue}}</td>
+      <td>{{total_cost}}</td>
+      <td>{{total_profit}}</td>
+
+    </tr>
+</table>
 {% endblock %}

@@ -8,6 +8,7 @@ class Ingredient(models.Model):
     unit = models.CharField()
     price_per_unit = models.FloatField()
     
+    
     def __str__(self): # without the def_str__ method it will not label ingredient by name
         return " " + self.name
 
@@ -15,9 +16,15 @@ class MenuItem(models.Model):
     name = models.CharField(max_length = 20)
     description = models.CharField(max_length = 200)
     price = models.FloatField()
+    # I have set a primary key in hopes of having some way to identfy what has been ordered?
+    # id = models.AutoField(primary_key=True) 
     
     def cost_of_items(self): # made for purchases sake
         ingredients = RecipeRequirement.objects.filter(recipe=self)
+
+    def __str__(self):
+        return self.name
+
         # go to the Receipe Requirements table.grab all of the recipe requiement data attributes. through .objects method. 
         # using.filter we tell python to only give me the objects when they equal this recipe. 
         # recipe is an attribute in the RecipeRequirement table line 44 see below.
@@ -35,8 +42,6 @@ class MenuItem(models.Model):
         # is this object. 
 
 
-    def __str__(self):
-        return self.name
 
 class RecipeRequirement(models.Model):
     # a recipe_id will populate with django here
