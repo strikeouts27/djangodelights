@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.urls import path 
 from .models import Ingredient, MenuItem, Purchases, RecipeRequirement
 from django.views.generic import ListView
-
+from .forms import MenuAdditionForm
+from django.views.generic.edit import CreateView # errors can come from importing on the wrong django.views
 from django.http import HttpResponse
 
 # Create your views here.
@@ -58,6 +59,8 @@ def home(request):
     return render(request,'inventory/home.html')
 
 class MenuView(ListView):
+    # when we specify the model being used for the template its almost as if we import or give access
+    # to the html template the class data for us to use for loops and django code on. 
     model = MenuItem
     template_name = 'inventory/menu.html'
 
@@ -68,3 +71,14 @@ class PurchaseView(ListView):
 class IngredientsView(ListView):
     model = Ingredient
     template_name = "inventory/ingredients.html"
+
+class MenuAdditionView(CreateView):
+    model = MenuItem
+    template_name = "inventory/form_template.html"
+    form_class = MenuAdditionForm
+
+# update view will require a <pk> or slug where I specify what I need to update.
+# check out the codecademy section.
+# https://www.codecademy.com/paths/build-python-web-apps-with-django/tracks/views-in-django/modules/django-writing-more-views/lessons/django-views/exercises/using-primary-keys-in-urls
+
+

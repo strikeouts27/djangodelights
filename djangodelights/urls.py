@@ -16,8 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from inventory.views import finance, home, IngredientsView, MenuView, PurchaseView
-from inventory import views
+# from inventory.views import finance, home, IngredientsView, MenuView, PurchaseView
+from inventory import views # with every view imported you need to specify views.viewname as seen in this file in the code below
 from django.views.generic.base import TemplateView
 from django.http import HttpResponse
 
@@ -25,9 +25,11 @@ urlpatterns = [
     
     path('', views.home, name='default'), # users don't need to see the rocket page anyway. they need to see the home page.
     path('admin/', admin.site.urls),
-    path('finance/', finance, name='finance'),
-    path('home/', home, name='home'), #I am attempting to connect the home_view function with the views function.
-    path('ingredients/', IngredientsView.as_view(), name='ingredients'),
-    path('menu/', MenuView.as_view(), name='menu'),
-    path('purchases/', PurchaseView.as_view(), name='purchases'),
+    path('finance/', views.finance, name='finance'),
+    path('home/', views.home, name='home'), #I am attempting to connect the home_view function with the views function.
+    path('ingredients/', views.IngredientsView.as_view(), name='ingredients'),
+    path('menu/', views.MenuView.as_view(), name='menu'),
+    path('purchases/', views.PurchaseView.as_view(), name='purchases'), 
+    path('menu/add',views.MenuAdditionView.as_view(), name="menuaddition") # if class based view it requires an as_view
+    # finance is not a classed based view therefore i do not need an as_view
     ]

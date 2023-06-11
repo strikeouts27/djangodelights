@@ -19,8 +19,15 @@ class MenuItem(models.Model):
     # I have set a primary key in hopes of having some way to identfy what has been ordered?
     # id = models.AutoField(primary_key=True) 
     
-    def cost_of_items(self): # made for purchases sake
-        ingredients = RecipeRequirement.objects.filter(recipe=self)
+    def requirements(self): # made for purchases sake and menu.html sake
+        requirements = RecipeRequirement.objects.filter(recipe=self)
+        return requirements
+        # this function will will grab all of the objects in the receipe requirements table
+        # and than it will filter what it grabs by the recipe being used and only grab what 
+        # ingredients the recipe calls for. 
+        # .filter will leave things as a list.  
+        # ingredients is a method on the object. 
+        # ingredient 
 
     def __str__(self):
         return self.name
