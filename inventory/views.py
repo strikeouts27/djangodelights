@@ -2,8 +2,10 @@ from django.shortcuts import render
 from django.urls import path 
 from .models import Ingredient, MenuItem, Purchases, RecipeRequirement
 from django.views.generic import ListView
-from .forms import MenuAdditionForm
-from django.views.generic.edit import CreateView # errors can come from importing on the wrong django.views
+# import one at the time write the view for it hook it up in urls.py check if it works than move on to the next one. 
+from .forms import MenuAdditionForm, IngredientAdditionForm, UpdateIngredientForm, RecipeAdditionForm # link the views and forms togather on this line
+# errors can come from importing on the wrong django.views
+from django.views.generic.edit import CreateView, UpdateView
 from django.http import HttpResponse
 
 # Create your views here.
@@ -53,7 +55,7 @@ def ingredient_cost_calculate():
 
     # the purchases are listed by names they do hold the ingredient data for each indvidual order. 
 
-    
+
 
 def home(request):
     return render(request,'inventory/home.html')
@@ -76,9 +78,33 @@ class MenuAdditionView(CreateView):
     model = MenuItem
     template_name = "inventory/form_template.html"
     form_class = MenuAdditionForm
+    # fields = ["name", "description", "price"]
+
+class IngredientAdditionView(CreateView):
+    model = Ingredient
+    template_name = 'inventory/form_template.html'
+    form_class = IngredientAdditionForm
+
+class UpdateIngredientView(UpdateView): # I am thinking this is an UpdateView
+    model = Ingredient
+    template_name = 'inventory/form_template.html'
+    fields = ["quantity", "price_per_unit"]
+    # fields = we need to input the fields of the columns that the provided model has.
+
+class RecipeRequirementAdditionView(CreateView):
+    model = RecipeRequirement
+    template_name = 'inventory/form_template.html'
+    fields = ["ingredient", "recipe", "quantity"]
+
+class PurchaseAdditionView(CreateView):
+    model = Purchases
+    template_name = 'inventory/form_template.html'
+    fields = ["menu_order", "timestamp"]
 
 # update view will require a <pk> or slug where I specify what I need to update.
 # check out the codecademy section.
 # https://www.codecademy.com/paths/build-python-web-apps-with-django/tracks/views-in-django/modules/django-writing-more-views/lessons/django-views/exercises/using-primary-keys-in-urls
 
 
+# create a view based on the forms made.
+# create a path to urls.py

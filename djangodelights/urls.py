@@ -30,6 +30,12 @@ urlpatterns = [
     path('ingredients/', views.IngredientsView.as_view(), name='ingredients'),
     path('menu/', views.MenuView.as_view(), name='menu'),
     path('purchases/', views.PurchaseView.as_view(), name='purchases'), 
-    path('menu/add',views.MenuAdditionView.as_view(), name="menuaddition") # if class based view it requires an as_view
+    path('menu/add',views.MenuAdditionView.as_view(success_url = "/menu/"), name="menuadd"),
+    path('ingredients/add', views.IngredientAdditionView.as_view(success_url = "/ingredients/"), name='ingredientadd'), # if class based view it requires an as_view
+    # path('ingredient/update', views.UpdateIngredientView.as_view(), name='ingredientupdate'),
+    path('recipe/add', views.RecipeRequirementAdditionView.as_view(success_url = "/menu/"), name='recipeadd'),
+    path('purchases/add', views.PurchaseAdditionView.as_view(success_url = "/purchases/"), name = 'purchaseaddition'),
+    # path('finance/', views.finance(), name='finance'), # this line of code holds the error.
     # finance is not a classed based view therefore i do not need an as_view
+    # error message views.finance() type error means I a. calling the fucntion wrong or I am not supposed to be calling it.
     ]

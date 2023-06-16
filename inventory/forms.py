@@ -20,6 +20,7 @@ class RecipeAdditionForm(forms.ModelForm):
     class Meta:
         model = RecipeRequirement
         fields = ('__all__')
+        
 class Purchases(forms.ModelForm):
     class Meta:
         model = Purchases

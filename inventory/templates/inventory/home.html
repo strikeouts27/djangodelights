@@ -1,5 +1,12 @@
 {% extends 'inventory/base.html' %} 
+{% load static %}
 
 {% block content %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'inventory/style.css' %}">
+{% endblock %}
+
 <h1> Welcome to the Home page!</h1>
+<body></body>
+
 {% endblock %}
