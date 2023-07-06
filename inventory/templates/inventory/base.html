@@ -13,10 +13,12 @@
     <a href="{% url 'menu' %}">Menu</a>
     <a href="{% url 'finance' %}">Finance</a>
     <a href="{% url 'purchases' %}">Purchases</a>
-    <a href="{% url 'menuadd' %}">Menu Add</a> <!--utilize name in urls.py -->
-    <a href="{% url 'ingredientadd' %}">Ingredient Add</a>
-    <a href="{% url 'recipeadd' %}">Recipe Add</a>
-    <a href="{% url 'purchaseaddition' %}">Purchase Addition</a>
+    <a href="{% url 'menuadd' %}">Add Menu</a> <!--utilize name in urls.py -->
+    <a href="{% url 'ingredientadd' %}">Add Ingredient</a>
+    <a href="{% url 'recipeadd' %}">Add Receipe</a>
+    <a href="{% url 'purchaseadd' %}">Add Purchase</a>
+    <a href="{% url ''%}"> Update Inventory</a>
+     
   </div>
 
   {% block content %}

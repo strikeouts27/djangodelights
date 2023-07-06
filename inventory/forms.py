@@ -25,3 +25,4 @@ class Purchases(forms.ModelForm):
     class Meta:
         model = Purchases
         fields = ('__all__')
+

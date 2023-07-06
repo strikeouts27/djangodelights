@@ -74,6 +74,10 @@ class IngredientsView(ListView):
     model = Ingredient
     template_name = "inventory/ingredients.html"
 
+class IngredientsListUpdateView(ListView):
+    model = Ingredient
+    template_name = "inventory/ingredients_update.html"
+    
 class MenuAdditionView(CreateView):
     model = MenuItem
     template_name = "inventory/form_template.html"

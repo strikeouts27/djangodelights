@@ -34,4 +34,20 @@ this grabs every row in the purchases table
 # views.py
 It is worth mentioning that when we use views.py it takes in requests and passes that information to the templates. For example things we import such as models get transferred when we tell it to.
 # troubleshooting ideas
-# picture what I am working with and what data type it is, and what are the charactersitics of what I am working with. is it a list? is it a object with all the fields and than I can access items inside of objects fields...
+# picture what I am working with and what data type it is, and what are the charactersitics of what I am working with. is it a list? is it a object with all the fields and than I can access items inside of objects fields...# DJANGO_MEETUP
+
+# urls.py
+# object.pk is how you reference the primary key.
+
+# duplicate ingredients view with an button.
+# the button will send us to a view where we edit the individual ingredient.
+# and the save button will forward to the list view again. 
+
+# relative vs absolute
+# relative to your domain.
+# absolute -> I am going to another website.
+{% are coming from django built in functions. %}
+{{context coming in from the view or the middleware}}
+reverse is essentially taking a name 
+the template engine looks up a url and a template tag. 
+success urls must have a slash 

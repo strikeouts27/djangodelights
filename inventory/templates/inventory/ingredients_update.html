@@ -1,0 +1,27 @@
+{% extends 'inventory/base.html' %} 
+
+{% block content %}
+{% load static %}
+<link rel = "stylesheet" href="{% static 'inventory/style.css' %}">
+<h1> Welcome to the ingredients page!</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Ingredient Name</th>
+            <th>Quantity</th>
+            <th>Unit Type</th>
+            <th>Price Per Unit</th>
+            <th></th>
+        </tr>
+    </thead>
+    {% for item in object_list %}
+    <tr><td>{{ item.name }}</td> 
+        <td>{{ item.quantity}}</td> 
+        <td>{{ item.unit }}</td> 
+        <td>{{ item.price_per_unit }}</td>
+        <td><a href="/update/inventory/{{ item.pk }}"><button>Link</button></a></td> <!-- this is what we add to the page that is not copied from ingredients.-->
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

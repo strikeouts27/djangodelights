@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse 
 
 # Create your models here.
 
@@ -7,11 +8,20 @@ class Ingredient(models.Model):
     quantity = models.FloatField()
     unit = models.CharField()
     price_per_unit = models.FloatField()
+# keep in mind that django automatically creates a primarky key column which can be referenced as 
+# id or .pk Ingredient.id or Ingreident.pk
 # keep in mind that if you do use updateview you do not want to provide update view access to fields that you do not want edited in the column. 
 # this could result in users messing up things that they should not be allowed to touch.
-    
+    class Meta:
+        ordering = ['name']
+
     def __str__(self): # without the def_str__ method it will not label ingredient by name
         return " " + self.name
+    
+    def get_absolute_url(self):
+        return reverse("updateingredient", kwargs={"pk": self.pk})
+    
+    
 
 class MenuItem(models.Model):
     name = models.CharField(max_length = 20)
