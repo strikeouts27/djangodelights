@@ -51,3 +51,9 @@ It is worth mentioning that when we use views.py it takes in requests and passes
 reverse is essentially taking a name 
 the template engine looks up a url and a template tag. 
 success urls must have a slash 
+
+reverse() go to the url conf and fetch a url. its for redirects. you can send it context. look at django.urls utility functions. 
+reverse grabs information from urls.py. it works like a formatted f string.
+so my answer should be: working on typing it out
+
+reverse_lazy is used with update view. 

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.urls import path 
+from django.urls import path, reverse_lazy
 from .models import Ingredient, MenuItem, Purchases, RecipeRequirement
 from django.views.generic import ListView
 # import one at the time write the view for it hook it up in urls.py check if it works than move on to the next one. 
@@ -78,6 +78,7 @@ class IngredientsListUpdateView(ListView):
     model = Ingredient
     template_name = "inventory/ingredients_update.html"
     
+    
 class MenuAdditionView(CreateView):
     model = MenuItem
     template_name = "inventory/form_template.html"
@@ -93,6 +94,9 @@ class UpdateIngredientView(UpdateView): # I am thinking this is an UpdateView
     model = Ingredient
     template_name = 'inventory/form_template.html'
     fields = ["quantity", "price_per_unit"]
+    # success_url field attribute and reverse_lazy are used with updateview. upon successful completion of the viewd django
+    # will route the user to the url with the name pattern of ingredientupdate
+    success_url = reverse_lazy('ingredientupdate') 
     # fields = we need to input the fields of the columns that the provided model has.
 
 class RecipeRequirementAdditionView(CreateView):
