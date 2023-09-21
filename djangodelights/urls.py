@@ -17,7 +17,7 @@ urlpatterns = [
     path('purchases/', views.PurchaseView.as_view(), name='purchases'), 
     path('menu/add/',views.MenuAdditionView.as_view(success_url = "/menu/"), name="menuadd"),
     path('ingredients/add/', views.IngredientAdditionView.as_view(success_url = "/ingredients/"), name='ingredientadd'), # if class based view it requires an as_view
-    path('ingredient/update/', views.UpdateIngredientView.as_view(success_url = "/ingredients/"), name='ingredientupdate'),
+    path('ingredient/update/<pk>', views.UpdateIngredientView.as_view(success_url = "/ingredients/"), name='ingredientupdate'),
     path('recipe/add/', views.RecipeRequirementAdditionView.as_view(success_url = "/menu/"), name='recipeadd'),
     path('purchases/add/', views.PurchaseAdditionView.as_view(success_url = "/purchases/"), name = 'purchaseadd'),
     path('update/inventory/<int:pk>/', views.IngredientsListUpdateView.as_view(), name='updateinventory'), # update view so the view had to be edited.

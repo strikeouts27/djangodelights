@@ -55,8 +55,6 @@ def ingredient_cost_calculate():
 
     # the purchases are listed by names they do hold the ingredient data for each indvidual order. 
 
-
-
 def home(request):
     return render(request,'inventory/home.html')
 
@@ -78,7 +76,6 @@ class IngredientsListUpdateView(ListView):
     model = Ingredient
     template_name = "inventory/ingredients_update.html"
     
-    
 class MenuAdditionView(CreateView):
     model = MenuItem
     template_name = "inventory/form_template.html"
@@ -96,7 +93,9 @@ class UpdateIngredientView(UpdateView): # I am thinking this is an UpdateView
     fields = ["quantity", "price_per_unit"]
     # success_url field attribute and reverse_lazy are used with updateview. upon successful completion of the viewd django
     # will route the user to the url with the name pattern of ingredientupdate
-    success_url = reverse_lazy('ingredients') 
+    def get_success_url():
+        reverse_lazy('ingredientupdate')
+
     # fields = we need to input the fields of the columns that the provided model has.
     # per ken I need the get_success_url method. 
 
