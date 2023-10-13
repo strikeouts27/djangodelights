@@ -125,11 +125,11 @@ class UpdateIngredientView(UpdateView):  # I am thinking this is an UpdateView
     # success_url field attribute and reverse_lazy are used with updateview. upon successful completion of the viewd django
     # will route the user to the url with the name pattern of ingredientupdate
 
-def get_success_url(self):
-    """Return the URL to redirect to after processing a valid form."""
-    if not self.success_url:
-        raise ImproperlyConfigured("No URL to redirect to. Provide a success_url.")
-    return str(self.success_url)  # success_url may be lazy  
+    def get_success_url(self):
+        """Return the URL to redirect to after processing a valid form."""
+        if not self.success_url:
+            raise ImproperlyConfigured("No URL to redirect to. Provide a success_url.")
+        return str(self.success_url)  # success_url may be lazy  
 
     # fields = we need to input the fields of the columns that the provided model has.
     # per ken I need the get_success_url method.

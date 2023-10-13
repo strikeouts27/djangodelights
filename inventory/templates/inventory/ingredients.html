@@ -14,8 +14,28 @@
             <th>Price Per Unit</th>
         </tr>
     </thead>
+    <!-- context is a list of objects from a listview 
+    object list is is inside of context and its a list of items.
+    this for loop says itemize each item in object list and iterates over item.name
+    the model that listview is using has attributes such as item.name and so on. 
+
+    listview has a built in system to query the database for the model specified
+
+
+    model specifies what data exists in the database 
+    there are views of different types and they views take data from the model in their respective different ways.
+    in other words the view decides what is taken from the database and what functions it can operate with.
+    context is the mechanism that the view uses to talk to the template. 
+    The template can only grab things from the context. the view CANNOT talk to the model.--> 
     {% for item in object_list %}
-    <tr><td>{{ item.name }}</td> <td>{{ item.quantity}}</td> <td>{{ item.unit }}</td> <td>{{ item.price_per_unit }}</td></tr>
+    <tr><td>
+        {{ item.name }} 
+        <a target=“_blank” href=“{% url "ingredientupdate" item.pk %}”>{{ item.name }}</a>
+        </td> 
+        <td>{{ item.quantity}}</td> 
+        <td>{{ item.unit }}</td> 
+        <td>{{ item.price_per_unit }}</td>
+    </tr>
     {% endfor %}
 </table>
 {% endblock %}
