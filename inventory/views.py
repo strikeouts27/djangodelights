@@ -120,7 +120,7 @@ class IngredientAdditionView(CreateView):
 
 class UpdateIngredientView(UpdateView):  # I am thinking this is an UpdateView
     model = Ingredient
-    template_name = "inventory/form_template.html"
+    template_name = "update_ingredient_view.html"
     fields = ["quantity", "price_per_unit"]
 
     # success_url field attribute and reverse_lazy are used with updateview. upon successful completion of the viewd django

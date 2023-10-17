@@ -5,5 +5,5 @@
   {{ form.as_p }}
   <input type="submit" value="Submit"/>
 </form>
-{% comment %} {% url 'ingredientupdate' pk=object.id%} {% endcomment %}
+{% url 'ingredientupdate' pk=object.id%}
 {% endblock %}
