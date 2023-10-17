@@ -45,7 +45,6 @@ class MenuItem(models.Model):
 
     def __str__(self):
         return self.name
-
         # go to the Receipe Requirements table.grab all of the recipe requiement data attributes. through .objects method.
         # using.filter we tell python to only give me the objects when they equal this recipe.
         # recipe is an attribute in the RecipeRequirement table line 44 see below.
@@ -94,7 +93,6 @@ class Purchases(models.Model):
 
     class Meta:
         verbose_name = "Purchase"
-
 
 # ask myself what does this table need information for
 # what questions am I trying to answer for my boss or for my project?

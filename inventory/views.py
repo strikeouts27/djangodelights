@@ -108,8 +108,9 @@ class MenuAdditionView(CreateView):
     model = MenuItem
     template_name = "inventory/form_template.html"
     form_class = MenuAdditionForm
+    success_url = "/menu/"
+    
     # fields = ["name", "description", "price"]
-
 
 class IngredientAdditionView(CreateView):
     model = Ingredient
