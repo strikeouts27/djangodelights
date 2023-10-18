@@ -30,7 +30,7 @@
     {% for item in object_list %}
     <tr><td>
         {{ item.name }} 
-        <a target=“_blank” href=“{% url "ingredientupdate" item.pk %}”>{{ item.name }}</a>
+        <a target="_blank" href="{% url "ingredientupdate" item.pk %}">{{ item.name }}</a>
         </td> 
         <td>{{ item.quantity}}</td> 
         <td>{{ item.unit }}</td> 
