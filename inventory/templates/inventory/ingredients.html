@@ -29,7 +29,6 @@
     The template can only grab things from the context. the view CANNOT talk to the model.--> 
     {% for item in object_list %}
     <tr><td>
-        {{ item.name }} 
         <a target="_blank" href="{% url "ingredientupdate" item.pk %}">{{ item.name }}</a>
         </td> 
         <td>{{ item.quantity}}</td> 
