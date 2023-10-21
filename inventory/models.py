@@ -7,7 +7,7 @@ from django.urls import reverse
 class Ingredient(models.Model):
     name = models.CharField(max_length=20)
     quantity = models.FloatField()
-    unit = models.CharField()
+    unit = models.CharField(max_length=20)
     price_per_unit = models.FloatField()
 
     # keep in mind that django automatically creates a primarky key column which can be referenced as

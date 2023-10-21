@@ -97,7 +97,7 @@ class PurchaseView(ListView):
 class IngredientsView(ListView):
     model = Ingredient
     template_name = "inventory/ingredients.html"
-
+    
 
 class IngredientsListUpdateView(ListView):
     model = Ingredient
