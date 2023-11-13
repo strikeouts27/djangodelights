@@ -88,6 +88,10 @@ class MenuView(ListView):
     model = MenuItem
     template_name = "inventory/menu.html"
 
+def ItemDetails(request, item_id):
+    item_obj = MenuItem.objects.get(id=item_id)
+    item_rec = item_obj.requirements()
+    return render(request, "inventory/item_modal.html", {"item_obj": item_rec})
 
 class PurchaseView(ListView):
     model = Purchases

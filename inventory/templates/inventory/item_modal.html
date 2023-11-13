@@ -1,0 +1,42 @@
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Modal title</h5>
+    </div>
+    <div class="modal-body">
+      <p>Modal body text goes here.</p>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Menu Item Ingredients</th>
+          <th>Quantity</th>
+        </tr>
+        <!-- we want the iteration variable to be descriptive and not name clash-->
+        <!-- we know that the object created is named item so we type that name and
+                    than we use dot notation to access the ingredients information
+                    We do not place this information inside of thead because the data needs to be in the rows-->
+      </thead>
+      {% for requirement in item_obj %}
+      <!-- we know that requirement function is the method from menuitems
+                it uses filter method and returns a list of recipe requirement objects
+                see the code in models.py that shows that method.
+                requirement is a recipe class object because the requirements function 
+                used the recipe requirement class. 
+                Since the function returns a list of recipe requirement objects we can access the individual
+                requirements using a for loop and dot notation. we use dot notation and look at the receipe requirements model
+                and choose the ingredients field to access the ingredient names -->
+      <tr>
+        <td>{{requirement.ingredient}}</td>
+        <td>{{requirement.quantity}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        Close
+      </button>
+    </div>
+  </div>
+</div>

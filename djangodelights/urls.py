@@ -51,6 +51,7 @@ urlpatterns = [
         views.IngredientsListUpdateView.as_view(),
         name="updateinventory",
     ),
+    path("item_details/<int:item_id>/", views.ItemDetails, name="item_details"),
 ]
 # update view so the view had to be edited.}
 # cannot have conflicting path names or matching names
