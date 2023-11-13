@@ -2,11 +2,79 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Delicious Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href={% static "assets/vendor/animate.css/animate.min.css" %} rel="stylesheet">
+  <link href={% static "assets/vendor/bootstrap/css/bootstrap.min.css" %} rel="stylesheet">
+  <link href={% static "assets/vendor/bootstrap-icons/bootstrap-icons.css" %} rel="stylesheet">
+  <link href={% static "assets/vendor/boxicons/css/boxicons.min.css" %} rel="stylesheet">
+  <link href={% static "assets/vendor/glightbox/css/glightbox.min.css" %} rel="stylesheet">
+  <link href={% static "assets/vendor/swiper/swiper-bundle.min.css" %} rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href={% static "assets/css/style.css" %} rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Delicious
+  * Updated: Sep 18 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+<div id="main-wrapper">
+{% block body_wrapper %}
+{% block top_nav %}
+  {% include 'inventory/topnav.html' %}<!-- ======= Hero Section ======= -->
+{% endblock %}
+{% block messages %}
+  {% include 'inventory/messages.html' %}
+{% endblock messages %}
+{% block body %}
+{% block app %}
+<!-- This is where app_base.html extends from here -->
+{% endblock app %}
+{% endblock body%}
+{% block footer %}
+  {% include 'inventory/footer.html' %}
+{% endblock footer %}
+{% endblock body_wrapper %}
+        </div>
+
+  <!-- Vendor JS Files -->
+  <script src={% static "assets/vendor/bootstrap/js/bootstrap.bundle.min.js" %}></script>
+  <script src={% static "assets/vendor/glightbox/js/glightbox.min.js" %}></script>
+  <script src={% static "assets/vendor/isotope-layout/isotope.pkgd.min.js" %}></script>
+  <script src={% static "assets/vendor/swiper/swiper-bundle.min.js" %}></script>
+  <script src={% static "assets/vendor/php-email-form/validate.js" %}></script>
+
+  <!-- Template Main JS File -->
+  <script src={% static "assets/js/main.js" %}></script>
+
+<!-- OLD CODE BELOW HERE -->
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/base.css'%}">
+    <!-- CSS values was defined again here I had to comment it out to prevent it from overriding my css value. think python variables.-->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="{% static 'css/base.css'%}"> -->
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -51,8 +119,8 @@
     </div>
   </div>
 </nav>
-
     </div>
+
       
     {% block content %} {% endblock %}
   </body>
