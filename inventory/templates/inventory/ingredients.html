@@ -1,7 +1,8 @@
-{% extends 'inventory/base.html' %} 
+{% extends 'inventory/app_base.html' %} 
 
-{% block content %}
+{% block app %}
 {% load static %}
+<div class="container">
 <link rel = "stylesheet" href="{% static 'inventory/style.css' %}">
 <h1> Welcome to the ingredients page!</h1>
 
@@ -37,4 +38,5 @@
     </tr>
     {% endfor %}
 </table>
-{% endblock %}
+</div>
+{% endblock app %}
