@@ -17,7 +17,9 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-
+def navbar(request):
+    render(request, template_name="navbar.html")
+    
 def finance(request):
     purchased_items = (
         Purchases.objects.all()
