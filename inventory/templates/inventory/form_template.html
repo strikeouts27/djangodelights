@@ -1,5 +1,5 @@
-{% extends "inventory/base.html" %}
-{% block content %}
+{% extends "inventory/app_base.html" %}
+{% block app= %}
 <form method="POST">
   {% csrf_token %}
   {{ form.as_p }}

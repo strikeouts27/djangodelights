@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-6ove&y5b8hg6*vr*93lukujh50-wwwi$n7u$ont-6u2wtw-8zq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['andrew.roofsoft.net']
 
 # Application definition
 
@@ -95,7 +95,7 @@ DATABASES = {
         "NAME": "DjangoDelights",
         "USER": "andrewstribling",
         "PASSWORD": "Baseball100!",
-        "HOST": "localhost",
+        "HOST": "172.21.20.110",
         "PORT": "",
     }
 }
