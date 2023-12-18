@@ -1,0 +1,23 @@
+{% extends "inventory/app_base.html" %}
+
+{% block app %}
+<form method="POST">
+  {% csrf_token %}
+
+  </br>
+  <h1>Name</h1>
+  {{ form.name }}
+  {{ form.name.errors }}
+  </br>
+  <h4>Description</h4>
+  {{ form.description }}
+  {{ form.description.errors }}
+  </br>
+  <h6>Price</h6>
+  {{ form.price}}
+  {{ form.price.errors}}
+</br></br>
+  <input type="submit" value="Submit"/>
+</form>
+{% comment %} {% url 'ingredientupdate' pk=object.id%} {% endcomment %}
+{% endblock %}

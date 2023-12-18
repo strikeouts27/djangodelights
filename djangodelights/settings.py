@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "inventory.apps.InventoryConfig",  # codecademy instructions. changed the default settings in apps.py to Inventory config and inventory on line 6
     # "bootstrap5",
+    "django.contrib.humanize",
 ]
 
 MIDDLEWARE = [

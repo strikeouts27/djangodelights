@@ -8,7 +8,7 @@ class Ingredient(models.Model):
     name = models.CharField(max_length=20)
     quantity = models.FloatField()
     unit = models.CharField(max_length=20)
-    price_per_unit = models.FloatField()
+    price_per_unit = models.DecimalField(decimal_places=2, max_digits=8)
 
     # keep in mind that django automatically creates a primarky key column which can be referenced as
     # id or .pk Ingredient.id or Ingreident.pk
@@ -68,7 +68,8 @@ class RecipeRequirement(models.Model):
     recipe = models.ForeignKey(
         MenuItem, on_delete=models.CASCADE
     )  # the table did not have a concept of which ingredients were tied to what recipe. this line of code associates ingredients with reciepes.
-    quantity = models.FloatField()
+    # I changed the quantity field from floatfield to decimal field.
+    quantity = models.DecimalField(decimal_places=2, max_digits=8)
 
     def __str__(self):
         return (

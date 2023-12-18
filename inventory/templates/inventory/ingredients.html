@@ -2,11 +2,13 @@
 
 {% block app %}
 {% load static %}
-<div>
-<link rel = "stylesheet" href="{% static 'inventory/style.css' %}">
+{% load humanize %}
+<!--this creates a white square card-->
+<!--<div class="card">-->
+<link rel = "stylesheet" href="http://andrew.roofsoft.net:5050/static/css/base.css">
 <h1> Welcome to the ingredients page!</h1>
 
-<table>
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>Ingredient Name</th>
@@ -32,9 +34,9 @@
     <tr><td>
         <a target="_blank" href="{% url "ingredientupdate" item.pk %}">{{ item.name }}</a>
         </td> 
-        <td>{{ item.quantity}}</td> 
-        <td>{{ item.unit }}</td> 
-        <td>{{ item.price_per_unit }}</td>
+        <td>{{ item.quantity|intcomma}}</td>
+        <td>{{ item.unit }}</td>
+        <td>$ {{ item.price_per_unit }}</td>
     </tr>
     {% endfor %}
 </table>

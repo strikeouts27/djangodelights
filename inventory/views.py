@@ -21,22 +21,22 @@ def navbar(request):
     render(request, template_name="navbar.html")
     
 def finance(request):
-    purchased_items = (
-        Purchases.objects.all()
-    )  # this grabs every row in the purchases table
+    purchased_items = Purchases.objects.all()  # this grabs every row in the purchases table
 
     total_revenue = 0
     for item in purchased_items:
         total_revenue = (
             total_revenue + item.menu_order.price
         )  # this uses the price of each item to calculate the revenue
-
+        total_revenue += total_revenue + item.menu_order.price
+        
     print(str(total_revenue))
     total_cost = ingredient_cost_calculate()
     print(str(total_cost) + " this is the total cost calculation")
-
-    total_profit = total_revenue - total_cost
+    total_cost_string = f"{total_cost} this is the total cost calculation"
+    total_profit = float(total_revenue) - float(total_cost)
     print(str(total_profit) + "total profit calculation amount")
+    total_profit_string = f"{total_profit} total profit calculation amount"
 
     return render(
         request,
