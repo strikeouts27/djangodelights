@@ -26,7 +26,8 @@ SECRET_KEY = "django-insecure-6ove&y5b8hg6*vr*93lukujh50-wwwi$n7u$ont-6u2wtw-8zq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['andrew.roofsoft.net']
+# connect via ssh and follow instructions in obsidan notes than go to http://andrew.roofsoft.net:5050/
+ALLOWED_HOSTS = ['andrew.roofsoft.net', '74.124.209.47:5050', ]
 
 # Application definition
 
