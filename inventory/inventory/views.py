@@ -40,7 +40,7 @@ def finance(request):
 
     return render(
         request,
-        "inventory/finance.html",
+        "templates/finance.html",
         {
             "total_revenue": total_revenue,
             "total_cost": total_cost,
@@ -81,38 +81,36 @@ def ingredient_cost_calculate():
 
 
 def home(request):
-    return render(request, "inventory/home.html")
+    return render(request, "templates/home.html")
 
 
 class MenuView(ListView):
     # when we specify the model being used for the template its almost as if we import or give access
     # to the html template the class data for us to use for loops and django code on.
     model = MenuItem
-    template_name = "inventory/menu.html"
+    template_name = "templates/menu.html"
 
 def ItemDetails(request, item_id):
     item_obj = MenuItem.objects.get(id=item_id)
     item_rec = item_obj.requirements()
-    return render(request, "inventory/item_modal.html", {"item_obj": item_rec})
+    return render(request, "templates/item_modal.html", {"item_obj": item_rec})
 
 class PurchaseView(ListView):
     model = Purchases
-    template_name = "inventory/purchases.html"
+    template_name = "templates/purchases.html"
 
 
 class IngredientsView(ListView):
     model = Ingredient
-    template_name = "inventory/ingredients.html"
-    
+    template_name = "templates/ingredients.html"
 
 class IngredientsListUpdateView(ListView):
     model = Ingredient
-    template_name = "inventory/ingredients_update.html"
-
+    template_name = "templates/ingredients_update.html"
 
 class MenuAdditionView(CreateView):
     model = MenuItem
-    template_name = "inventory/form_template.html"
+    template_name = "templates/form_template.html"
     form_class = MenuAdditionForm
     success_url = "/menu/"
     
@@ -120,13 +118,13 @@ class MenuAdditionView(CreateView):
 
 class IngredientAdditionView(CreateView):
     model = Ingredient
-    template_name = "inventory/form_template.html"
+    template_name = "templates/form_template.html"
     form_class = IngredientAdditionForm
 
 
 class UpdateIngredientView(UpdateView):  # I am thinking this is an UpdateView
     model = Ingredient
-    template_name = "inventory/update_ingredient_view.html"
+    template_name = "templates/update_ingredient_view.html"
     fields = ["quantity", "price_per_unit"]
 
     # success_url field attribute and reverse_lazy are used with updateview. upon successful completion of the viewd django
@@ -144,13 +142,13 @@ class UpdateIngredientView(UpdateView):  # I am thinking this is an UpdateView
 
 class RecipeRequirementAdditionView(CreateView):
     model = RecipeRequirement
-    template_name = "inventory/form_template.html"
+    template_name = "templates/form_template.html"
     fields = ["ingredient", "recipe", "quantity"]
 
 
 class PurchaseAdditionView(CreateView):
     model = Purchases
-    template_name = "inventory/form_template.html"
+    template_name = "templates/form_template.html"
     fields = ["menu_order", "timestamp"]
 
 

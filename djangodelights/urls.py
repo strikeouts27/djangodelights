@@ -1,10 +1,8 @@
 # urls.py
 from django.contrib import admin
-from django.http import HttpResponse
-from django.urls import path, include
+from django.urls import path
 # with every view imported you need to specify views.viewname as seen in this file in the code below
-from django.views.generic.base import TemplateView
-# from inventory.views import finance, home, IngredientsView, MenuView, PurchaseView
+from inventory.views import finance, home, IngredientsView, MenuView, PurchaseView
 from inventory import views
 
 urlpatterns = [
