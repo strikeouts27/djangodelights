@@ -112,7 +112,7 @@ class IngredientsListUpdateView(ListView):
 
 class MenuAdditionView(CreateView):
     model = MenuItem
-    template_name = "inventory/form_template.html"
+    template_name = "inventory/menu_add.html"
     form_class = MenuAdditionForm
     success_url = "/menu/"
     
@@ -120,7 +120,7 @@ class MenuAdditionView(CreateView):
 
 class IngredientAdditionView(CreateView):
     model = Ingredient
-    template_name = "inventory/form_template.html"
+    template_name = "inventory/menu_add.html"
     form_class = IngredientAdditionForm
 
 
